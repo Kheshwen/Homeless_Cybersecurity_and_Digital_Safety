@@ -1,0 +1,6 @@
+type,value_raw,source
+account,112233445566,mock_semakmule
+account,098765432123,mock_semakmule
+account,555544443333,mock_semakmule
+phone,0112345678,mock_mcmc
+phone,0198765432,mock_mcmc

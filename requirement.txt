@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+pydantic-settings
+python-multipart
+twilio
+openai
+easyocr
+python-Levenshtein
+streamlit
+pytest
+python-dotenv

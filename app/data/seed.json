@@ -1,9 +1,0 @@
-{
-  "_note": "MOCK DATA for demo only. Not real MCMC or Semakmule records.",
-  "entries": [
-    {"type": "account", "value": "123456789012", "reports": 3, "note": "fake online seller"},
-    {"type": "account", "value": "987654321098", "reports": 5, "note": "parcel scam"},
-    {"type": "phone", "value": "+60112345678", "reports": 4, "note": "fake LHDN caller"},
-    {"type": "phone", "value": "+60198765432", "reports": 2, "note": "job scam on Telegram"}
-  ]
-}

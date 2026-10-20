@@ -20,7 +20,7 @@ except Exception:
 lang = st.radio("Language / Bahasa", options=["ms", "en"], horizontal=True)
 input_text = st.text_area("Paste message here / Tampal mesej di sini:", height=150)
 uploaded_image = st.file_uploader(
-    "Or upload a screenshot / Atau muat naik tangkap layar:", 
+    "Or upload a screenshot / Atau muat naik tangkap layar:",
     type=["png", "jpg", "jpeg"]
 )
 
@@ -38,8 +38,8 @@ if st.button("Check / Semak", type="primary"):
 
             try:
                 res = requests.post(
-                    f"{API_URL}/api/check", 
-                    data=data, 
+                    f"{API_URL}/api/check",
+                    data=data,
                     files=files if files else None,
                     timeout=15
                 )
@@ -66,7 +66,7 @@ if "verdict" in st.session_state:
         "SAFE": "#388E3C",     # Green
         "UNSURE": "#616161"    # Grey
     }
-    color = color_map.get(verdict.level, "#616161")
+    color = color_map.get(verdict.get("level", "UNSURE"), "#616161")
 
     # Coloured Verdict Card
     st.markdown(
@@ -102,8 +102,8 @@ if "verdict" in st.session_state:
         for item in detected:
             st.markdown(f"- {item}")
 
-    # Crowdsourced Reporting Block
-    if verdict["level"] in ["DANGER", "CAUTION"]:
+    # Single Merged Crowdsourced Reporting Block
+    if verdict.get("level") in ["DANGER", "CAUTION"]:
         st.write("---")
         st.write("Help others by reporting this scam pattern / Bantu orang lain dengan melaporkan corak penipuan ini:")
 
@@ -111,18 +111,30 @@ if "verdict" in st.session_state:
             st.success("✅ Reported successfully! Thank you for protecting the community.")
         else:
             if st.button("🚨 Report to Database"):
-                report_text = st.session_state.get("analyzed_text", "Unknown message")
-                report_data = {
-                    "value": report_text[:100],
-                    "entity_type": "message",
-                    "scam_type": verdict.get("scam_type", "other")
-                }
+                targets = entities.get("accounts", []) + entities.get("phones", [])
                 try:
-                    r_res = requests.post(f"{API_URL}/api/report", json=report_data, timeout=5)
-                    if r_res.status_code == 200:
-                        st.session_state["reported"] = True
-                        st.rerun()
+                    if targets:
+                        for target in targets:
+                            requests.post(
+                                f"{API_URL}/api/report",
+                                json={
+                                    "value": target,
+                                    "entity_type": "entity",
+                                    "scam_type": verdict.get("scam_type", "other")
+                                },
+                                timeout=5
+                            )
                     else:
-                        st.error("Failed to submit report. Please try again.")
+                        requests.post(
+                            f"{API_URL}/api/report",
+                            json={
+                                "value": st.session_state.get("analyzed_text", "Unknown message")[:100],
+                                "entity_type": "message",
+                                "scam_type": verdict.get("scam_type", "other")
+                            },
+                            timeout=5
+                        )
+                    st.session_state["reported"] = True
+                    st.rerun()
                 except Exception as e:
                     st.error(f"Error reporting: {e}")

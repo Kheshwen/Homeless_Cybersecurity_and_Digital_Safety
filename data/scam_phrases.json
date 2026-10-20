@@ -64,5 +64,83 @@
         "keyword": "pos laju",
         "language": "ms",
         "weight": 20
+    },
+    {
+        "scam_type": "investment",
+        "keyword": "untung lumayan",
+        "language": "ms",
+        "weight": 25
+    },
+    {
+        "scam_type": "investment",
+        "keyword": "pulangan tinggi",
+        "language": "ms",
+        "weight": 25
+    },
+    {
+        "scam_type": "investment",
+        "keyword": "skim pelaburan",
+        "language": "ms",
+        "weight": 20
+    },
+    {
+        "scam_type": "investment",
+        "keyword": "guaranteed profit",
+        "language": "en",
+        "weight": 25
+    },
+    {
+        "scam_type": "job",
+        "keyword": "commission",
+        "language": "en",
+        "weight": 25
+    },
+    {
+        "scam_type": "job",
+        "keyword": "kerja sambilan",
+        "language": "ms",
+        "weight": 20
+    },
+    {
+        "scam_type": "job",
+        "keyword": "kerja dari rumah",
+        "language": "ms",
+        "weight": 20
+    },
+    {
+        "scam_type": "job",
+        "keyword": "work from home",
+        "language": "en",
+        "weight": 20
+    },
+    {
+        "scam_type": "urgency",
+        "keyword": "dalam masa 24 jam",
+        "language": "ms",
+        "weight": 15
+    },
+    {
+        "scam_type": "urgency",
+        "keyword": "urgent",
+        "language": "en",
+        "weight": 15
+    },
+    {
+        "scam_type": "parcel",
+        "keyword": "parcel anda",
+        "language": "ms",
+        "weight": 10
+    },
+    {
+        "scam_type": "impersonation",
+        "keyword": "polis",
+        "language": "ms",
+        "weight": 20
+    },
+    {
+        "scam_type": "impersonation",
+        "keyword": "mahkamah",
+        "language": "ms",
+        "weight": 20
     }
 ]

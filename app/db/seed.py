@@ -1,8 +1,8 @@
 import json
 import csv
 import hashlib
-import os
 from datetime import datetime
+from app.config import DATA_DIR
 from app.db.session import engine, SessionLocal
 from app.db.models import Base, ScamPattern, MuleEntity
 
@@ -20,8 +20,7 @@ def run_seed():
 
     # Seed Scam Patterns
     if db.query(ScamPattern).count() == 0:
-        base_dir = os.path.dirname(os.path.dirname(__file__))
-        with open(os.path.join(base_dir, "data", "scam_phrases.json"), "r") as f:
+        with open(DATA_DIR / "scam_phrases.json", "r", encoding="utf-8-sig") as f:
             phrases = json.load(f)
             for p in phrases:
                 pattern = ScamPattern(**p)
@@ -30,8 +29,7 @@ def run_seed():
 
     # Seed Mule Entities
     if db.query(MuleEntity).count() == 0:
-        base_dir = os.path.dirname(os.path.dirname(__file__))
-        with open(os.path.join(base_dir, "data", "seed_mules.csv"), "r") as f:
+        with open(DATA_DIR / "seed_mules.csv", "r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 raw_val = row["value_raw"]

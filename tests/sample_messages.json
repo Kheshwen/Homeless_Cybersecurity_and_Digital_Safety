@@ -1,1 +1,182 @@
-//
+[
+    {
+        "id": 1,
+        "text": "Tunggakan cukai LHDN RM1,850. Sila muat turun aplikasi di http://lhdn-cukai.apk",
+        "expected_level": "DANGER",
+        "description": "Scam: Impersonates LHDN and pushes an APK file."
+    },
+    {
+        "id": 2,
+        "text": "Sila buat bayaran RM500 ke akaun Maybank 11 22 33 44 55 66 untuk proses pinjaman.",
+        "expected_level": "DANGER",
+        "description": "Scam: Uses a seeded mule account (112233445566) with spaces."
+    },
+    {
+        "id": 3,
+        "text": "Akaun Maybank anda telah disekat. Sila log masuk ke https://maybank2u-verify.com.my untuk pengesahan segera.",
+        "expected_level": "DANGER",
+        "description": "Scam: Lookalike domain spoofing Maybank with suspicious keywords."
+    },
+    {
+        "id": 4,
+        "text": "Pos Laju: bayar RM2.50 untuk parcel anda yang tersangkut. Sila layari bit.ly/pos-laju-fee",
+        "expected_level": "CAUTION",
+        "description": "Scam: Parcel scam using a URL shortener and urgent payment."
+    },
+    {
+        "id": 5,
+        "text": "Hi, kami mencari pekerja sambilan. Komisen harian RM300. Sila hubungi pengurus kami melalui WhatsApp +6019-876 5432",
+        "expected_level": "DANGER",
+        "description": "Scam: Job scam keyword (komisen/WhatsApp) plus a seeded mule phone number."
+    },
+    {
+        "id": 6,
+        "text": "PDRM: Akaun bank anda dibekukan. Sila hubungi kami dalam 24 jam untuk elak waran tangkap.",
+        "expected_level": "CAUTION",
+        "description": "Scam: Authority impersonation (PDRM) combined with extreme urgency keywords."
+    },
+    {
+        "id": 7,
+        "text": "Sila berikan kod TAC yang dihantar ke telefon anda untuk membatalkan transaksi.",
+        "expected_level": "CAUTION",
+        "description": "Scam: Direct request for a TAC/OTP code."
+    },
+    {
+        "id": 8,
+        "text": "Tahniah anda menang cabutan bertuah! Sila hubungi 01 1-2345 678 untuk tuntutan.",
+        "expected_level": "DANGER",
+        "description": "Scam: Obfuscated mule phone number (0112345678)."
+    },
+    {
+        "id": 9,
+        "text": "KWSP: Pengeluaran khas diluluskan. Kemaskini butiran anda di s.id/kwsp-khas",
+        "expected_level": "CAUTION",
+        "description": "Scam: KWSP impersonation using a URL shortener."
+    },
+    {
+        "id": 10,
+        "text": "Sertai skim pelaburan kami. Untung lumayan, modal RM100 komisen tinggi. PM sekarang!",
+        "expected_level": "CAUTION",
+        "description": "Scam: Investment phrasing triggering the job/commission rule."
+    },
+    {
+        "id": 11,
+        "text": "Tolong transfer ke CIMB 0987-6543-2123 sekarang, kawan saya kemalangan.",
+        "expected_level": "DANGER",
+        "description": "Scam: Emergency scam using a seeded mule account (098765432123)."
+    },
+    {
+        "id": 12,
+        "text": "Amaran Bank Negara: Akaun anda dibekukan segera. Sila sahkan di pbebank-update.com",
+        "expected_level": "DANGER",
+        "description": "Scam: Bank Negara impersonation with urgency and a lookalike domain."
+    },
+    {
+        "id": 13,
+        "text": "Remote work available! Earn RM500 daily commission. Contact our HR on Telegram.",
+        "expected_level": "CAUTION",
+        "description": "Scam: English job scam with Telegram contact mention."
+    },
+    {
+        "id": 14,
+        "text": "You have tunggakan cukai of RM500. Pay immediately to 5555 4444 3333 or polis tangkap.",
+        "expected_level": "DANGER",
+        "description": "Scam: Mixed Malay/English with a seeded mule account."
+    },
+    {
+        "id": 15,
+        "text": "Your parcel is delayed. Download the tracking app here: http://track-parcel.apk",
+        "expected_level": "DANGER",
+        "description": "Scam: English parcel scam pushing an APK."
+    },
+    {
+        "id": 16,
+        "text": "RM0.00 MYBANK: Kod TAC untuk transaksi RM100.00 di SHOPEE ialah 123456. Jangan kongsi TAC anda.",
+        "expected_level": "SAFE",
+        "description": "Safe: Real bank notice. Rules might add low points, but score stays below 35."
+    },
+    {
+        "id": 17,
+        "text": "Jom makan malam esok dekat KL, pukul 8 malam boleh tak?",
+        "expected_level": "SAFE",
+        "description": "Safe: Casual friend chat in Malay."
+    },
+    {
+        "id": 18,
+        "text": "Please review the attached PDF report by 5 PM today.",
+        "expected_level": "SAFE",
+        "description": "Safe: Professional workplace message."
+    },
+    {
+        "id": 19,
+        "text": "Tolong belikan susu anak waktu balik kerja nanti.",
+        "expected_level": "SAFE",
+        "description": "Safe: Family chat."
+    },
+    {
+        "id": 20,
+        "text": "Makluman LHDN: Tarikh akhir e-Filing adalah 30 April. Sila rujuk portal rasmi di hasil.gov.my",
+        "expected_level": "SAFE",
+        "description": "Safe: Real LHDN announcement. The whitelist domain bypasses the lookalike/APK checks."
+    },
+    {
+        "id": 21,
+        "text": "Berita terkini: Hujan lebat dijangka melanda pantai timur bermula esok pagi.",
+        "expected_level": "SAFE",
+        "description": "Safe: Standard news broadcast."
+    },
+    {
+        "id": 22,
+        "text": "Promosi Pizza! Beli 1 percuma 1 di semua cawangan. Sah sehingga hari Ahad.",
+        "expected_level": "SAFE",
+        "description": "Safe: Legitimate business promotion without suspicious links."
+    },
+    {
+        "id": 23,
+        "text": "Bro, esok jadi main futsal tak dekat court biasa?",
+        "expected_level": "SAFE",
+        "description": "Safe: Casual conversational Malay."
+    },
+    {
+        "id": 24,
+        "text": "Bank Negara reminds you to never share your password or OTP with anyone.",
+        "expected_level": "SAFE",
+        "description": "Safe: Real banking advisory. Good test to ensure rules don't over-penalize educational texts."
+    },
+    {
+        "id": 25,
+        "text": "Cikgu pesan esok bawa buku teks Matematik Jilid 2 untuk latihan dalam kelas.",
+        "expected_level": "SAFE",
+        "description": "Safe: School announcement."
+    },
+    {
+        "id": 26,
+        "text": "Hey, are we still on for the movie tonight?",
+        "expected_level": "SAFE",
+        "description": "Safe: English friend chat."
+    },
+    {
+        "id": 27,
+        "text": "Peringatan: Temujanji klinik pergigian anda pada 21 Okt 2026 jam 9 pagi.",
+        "expected_level": "SAFE",
+        "description": "Safe: Appointment reminder."
+    },
+    {
+        "id": 28,
+        "text": "Sila layari portal rasmi KKM di mysejahtera.moh.gov.my untuk maklumat lanjut.",
+        "expected_level": "SAFE",
+        "description": "Safe: Uses an official, whitelisted government domain."
+    },
+    {
+        "id": 29,
+        "text": "Shopee: Your parcel SPX12345 is out for delivery today.",
+        "expected_level": "SAFE",
+        "description": "Safe: Standard legitimate delivery update without shorteners or APKs."
+    },
+    {
+        "id": 30,
+        "text": "Berapa harga servis aircond bos untuk rumah teres 2 tingkat?",
+        "expected_level": "SAFE",
+        "description": "Safe: Random business inquiry."
+    }
+]

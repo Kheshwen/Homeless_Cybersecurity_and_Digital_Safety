@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from app.api import web
 
 app = FastAPI(title="ScamGuard API")
+
+app.include_router(web.router)
 
 @app.get("/health")
 async def health_check():

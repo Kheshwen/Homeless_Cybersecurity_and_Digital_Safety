@@ -23,7 +23,7 @@ def extract_entities(text: str) -> dict:
 
     # Number extraction: Pull clusters of digits, spaces, and dashes
     # Then normalize and classify them to avoid overlaps
-    raw_number_clusters = re.findall(r'(?:\+?60)?(?:\d[\s\-]*){9,16}', text)
+    raw_number_clusters = re.findall(r'\+?(?:\d[\s\-]*){9,16}', text)
     
     for raw_cluster in raw_number_clusters:
         norm_val = normalize_number(raw_cluster)

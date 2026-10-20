@@ -25,8 +25,14 @@ async def check_message(
 ):
     start_time = time.time()
     
-    # Note: Image OCR is built in Phase 5. For now, we process the text.
     input_text = text or ""
+    if image:
+        try:
+            from app.core.ocr import extract_text_from_image
+            input_text = (input_text + " " + extract_text_from_image(await image.read())).strip()
+        except Exception:
+            pass  # OCR unavailable: fall back to the typed text only
+    input_text = input_text[:2000]
     verdict = analyze(input_text, lang)
     
     # Log the check

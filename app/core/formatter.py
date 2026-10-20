@@ -1,8 +1,13 @@
 from app.schemas import Verdict
 
 def format_whatsapp(verdict: Verdict) -> str:
-    icon_map = {"DANGER": "🚨", "CAUTION": "⚠️", "SAFE": "✅", "UNSURE": "❓"}
-    icon = icon_map.get(verdict.level, "❓")
+    icon_map = {
+    "DANGER": "🔴",
+    "CAUTION": "🟡",
+    "SAFE": "🟢",
+    "UNSURE": "⚪"
+}
+    icon = icon_map.get(verdict.level, "⚪")
     
     # Verdict Header
     text = f"{icon} *{verdict.level}* (Score: {verdict.score})\n\n"

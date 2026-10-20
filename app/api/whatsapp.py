@@ -23,8 +23,13 @@ MALAY_HINTS = {"yang", "dan", "anda", "akaun", "sila", "bayar", "tunggakan", "se
 
 def is_rate_limited(phone_number: str) -> bool:
     now = time.time()
-    rate_limits[phone_number] = [t for t in rate_limits[phone_number] if now - t < 60]
-    if len(rate_limits[phone_number]) >= 10:  # 10 checks per minute per number
+    timestamps = [t for t in rate_limits[phone_number] if now - t < 60]
+    if not timestamps:
+        rate_limits.pop(phone_number, None)
+    else:
+        rate_limits[phone_number] = timestamps
+
+    if len(rate_limits.get(phone_number, [])) >= 10:
         return True
     rate_limits[phone_number].append(now)
     return False

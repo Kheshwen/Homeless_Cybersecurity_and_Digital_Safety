@@ -21,7 +21,7 @@ async def check_message(
     text: Optional[str] = Form(None),
     image: Optional[UploadFile] = File(None),
     lang: Optional[str] = Form("ms"),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
 ):
     start_time = time.time()
     

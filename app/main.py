@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="ScamGuard API", lifespan=lifespan)
 
 app.include_router(web.router)
-app.include_router(whatsapp.router)
+app.include_router(meta_whatsapp.router)
 
 
 @app.get("/health")

@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from app.api import web, whatsapp
+from app.api import web, whatsapp, meta_whatsapp
 from app.db.seed import run_seed
 
 
@@ -14,6 +14,7 @@ app = FastAPI(title="ScamGuard API", lifespan=lifespan)
 
 app.include_router(web.router)
 app.include_router(whatsapp.router)
+app.include_router(meta_whatsapp.router)
 
 
 @app.get("/health")
